@@ -21,32 +21,6 @@ def ml_model(inputer):
     inputFromWeb = inputFromWeb.append(holder)
 
 
-    # %%
-    #inputFromWeb = 0
-
-
-    # %%
-    #ordinal = pd.read_csv("base_ordinal_LIMPA.csv", index_col = 0)
-
-
-    # %%
-    """ seleciona todas as colunas com algo no nome """
-    #selected_cols = [col for col in ordinal.columns if ('ord') in col]
-
-
-    # %%
-    #ordinal['tpv medio'] = ordinal['tpv_prometido']
-
-
-    # %%
-    #inputFromWeb = ordinal[['tpv medio','segmento_ord', 'mcc_ord', 'bairro_ord', 'cidade_ord', 'regiao_ord', 'uf_ord', 'subcanal_de_vendas_ord']]
-
-
-    # %%
-    inputFromWeb
-
-    # %% [markdown]
-    # # Processamento dos dados
 
     # %%
     credito = pd.read_csv("ML/base_credito_treino_LIMPA.csv", index_col = 0)
@@ -231,15 +205,8 @@ def ml_model(inputer):
 
     model = XGBRegressor().fit(train_data, train_labels)
 
-
-    # %%
-    from sklearn.metrics import r2_score
-    hldr = model.predict(test_data)
-    r2_score(test_labels, hldr)
     estimativa_limite = model.predict(inputFromWeb)
 
-    # %% [markdown]
-    # ## Juros
 
     # %%
     """ dependendo do dataset q eu vou usar eu mudo qual linha comentada ta comentada """
@@ -249,9 +216,6 @@ def ml_model(inputer):
     X[['tpv medio','segmento_ord', 'mcc_ord', 'bairro_ord', 'cidade_ord', 'regiao_ord', 'uf_ord', 'subcanal_de_vendas_ord']] = quanti_do_sid[['tpv medio','segmento_ord', 'mcc_ord', 'bairro_ord', 'cidade_ord', 'regiao_ord', 'uf_ord', 'subcanal_de_vendas_ord']]
     X['prob_default_60d'] = pd.DataFrame(average_probability_prediction_default_60d)[0]
     X['prob_default_mar'] = pd.DataFrame(average_probability_prediction_default_mar)[0]
-
-
-    X_train, X_test, y_train, y_test = train_test_split(X, credito[['limite', 'juros_am']], test_size = 0.2, random_state=123)
 
 
     # %%
@@ -282,20 +246,12 @@ def ml_model(inputer):
     model = XGBRegressor().fit(train_data, train_labels)
 
 
-    # %%
-    from sklearn.metrics import r2_score
-    hldr = model.predict(test_data)
-    r2_score(test_labels, hldr)
-
-    inputFromWeb['prob_default_mar'] = pd.DataFrame(average_probability_prediction_default_mar)[0]
-
     estimativa_juros = model.predict(inputFromWeb)
 
     # %% [markdown]
     # ## Finalizando
 
     # %%
-    inputFromWeb['prob_default_mar'] = pd.DataFrame(average_probability_prediction_default_mar)[0]
 
     inputFromWeb['estimativa_limite'] = estimativa_limite
 
