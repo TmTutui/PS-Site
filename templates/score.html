@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V4</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico')}}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animsition/css/animsition.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css')}}">
+<!--===============================================================================================-->
+<style>
+    #container {
+        position: relative;
+        width: 450px;
+        height: 450px;
+    }
+    #halfclip {
+        width: 50%;
+        height: 100%;
+        right: 0px;
+        position: absolute;
+        overflow: hidden;
+        transform-origin: left center;
+        transform: rotate(-90deg);
+    }
+
+    .halfcircle {
+        box-sizing: border-box;
+        height: 100%;
+        right: 0px;
+        position: absolute;
+        border: solid 30px transparent;
+        border-top-color: #000;
+        border-left-color: #000;
+        border-radius: 50%;
+    }
+
+    #clipped {
+        width: 200%;
+        animation: rotate 2s linear;
+        -webkit-animation: rotate 2s linear;
+        transform: rotate({{score*180 - 45}}deg);
+    }
+    @-webkit-keyframes rotate {
+        0% {
+            transform: rotate(-45deg);
+        }
+        100% {
+            transform: rotate({{score*180 - 45}}deg);
+        }
+    }
+    @keyframes rotate {
+        0% {
+            transform: rotate(-45deg);
+        }
+        100% {
+            transform: rotate({{score*180 - 45}}deg);
+        }
+    }
+</style>
+</head>
+<body>
+
+	<div class="container-contact100" >
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="score.html" method="GET">
+				<span class="contact100-form-title">
+					<img src="{{ url_for('static', filename='images/icons/logo-stone.svg')}}" width="22%">
+				</span>
+                    <div class="wrap-input100">
+                    {%if aprovado  %}
+                        <h3> Parabéns, você está apto a receber o cartão de crédito da Stone </h3>
+                    {%else%}
+                        <h5> Infelizmente você não está apto a receber <br>
+                         o cartão de crédito da Stone </h5>
+                    {%endif%}
+                    </div>
+
+                    <br><p></p><br>
+
+                    <h3 style ="font-family: Poppins-Medium;">Seu credit score:</h3>
+                    <p><br>
+                    
+                    <div id="container">
+                        <div id="halfclip">
+                            <div class="halfcircle" id="clipped"></div>
+                        </div>
+                    </div>
+
+                    <svg viewBox="0 0 300 50">
+                        <g fill-opacity=".05" stroke-width="10">
+                            <path
+                                d="M5 50a45 45 0 1 1 90 0"
+                                stroke="#E0E0E0"
+                            />
+                            <path
+                                class="progress"
+                                d="M5 50a45 45 0 1 1 90 0"
+                                stroke="#14AA4B"
+                                stroke-dasharray="210"
+                                stroke-dashoffset="142"
+                            />
+                        </g>
+                    </svg>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/animsition/js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/select2/select2.min.js')}}"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/daterangepicker/moment.min.js')}}"></script>
+	<script src="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/countdowntime/countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+
+<!-- <script>
+    function sleep(milliseconds) {
+        const date = Date.now();
+        let currentDate = null;
+        do {
+            currentDate = Date.now();
+        } while (currentDate - date < milliseconds);
+    }
+    sleep(400)
+    const circle = document.getElementsByClassName('progress');
+    for (i = 0; i < {{score}}; i++) {
+        circle[0].setAttribute('stroke-dasharray', (142 + 5*i).toString());
+        sleep(100)
+        console.log(i)
+    }
+</script> -->
+
+</body>
+</html>
