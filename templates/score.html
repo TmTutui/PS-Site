@@ -26,6 +26,7 @@
 <!--===============================================================================================-->
 <style>
     #container {
+        display: flex;
         position: relative;
         width: 450px;
         height: 450px;
@@ -43,6 +44,7 @@
     .halfcircle {
         box-sizing: border-box;
         height: 100%;
+        width: 100%;
         right: 0px;
         position: absolute;
         border: solid 35px transparent;
@@ -67,6 +69,7 @@
     .halfcircle_shadow {
         box-sizing: border-box;
         height: 100%;
+        width: 100%;
         right: 0px;
         position: absolute;
         border: solid 30px transparent;
@@ -97,6 +100,13 @@
             transform: rotate({{score*180 - 45}}deg);
         }
     }
+
+    .score{
+        transform: rotate(90deg); 
+        position: relative; 
+        font-size: 400%
+    }
+    
     .section {
 	clear: both;
 	padding: 0px;
@@ -136,6 +146,11 @@
     @media only screen and (max-width: 1050px) {
         .span_2_of_2, .span_1_of_2 { width: 100%; }
     }
+
+    @media only screen and (max-width: 640px) {
+        .score {font-size: 200%}
+        #container { width: 200px; height: 200px;}
+    }
 </style>
 </head>
 <body>
@@ -144,7 +159,7 @@
 		<div class="wrap-contact100">
 			<form class="contact100-form validate-form" action="score.html" method="GET">
 				<span class="contact100-form-title">
-					<img src="{{ url_for('static', filename='images/icons/logo-stone.svg')}}" width="22%">
+					<img src="{{ url_for('static', filename='images/icons/logo-stone.svg')}}" width="30%">
 				</span>
                     <div class="wrap-input100">
                     {%if aprovado  %}
@@ -167,7 +182,7 @@
                                 <div id="halfclip" style = "display: flex; align-items: center;">
                                     <div class="halfcircle" id="clipped"></div>
                                     <div class="halfcircle_shadow" id="clipped_shadow"></div>
-                                    <h3 style="transform: rotate(90deg); position: relative; font-size: 400%"> {{score*100}} </h3>
+                                    <h3 class ="score"> {{score*100}} </h3>
                                 </div>
                             </div>
                         </div>
