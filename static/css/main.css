@@ -739,7 +739,7 @@ th, td {
 [ Ver2 ]*/
 .table100.ver2 td {
   font-family: Montserrat-Regular;
-  font-size: 14px;
+  font-size: 17px;
   color: #808080;
   line-height: 1.4;
 }
@@ -781,14 +781,14 @@ th, td {
 
 .table100.ver2 td {
   font-family: Montserrat-Regular;
-  font-size: 14px;
+  font-size: 18px;
   color: #808080;
   line-height: 1.4;
 }
 
 .table100.ver2 th {
   font-family: Montserrat-Medium;
-  font-size: 12px;
+  font-size: 16px;
   color: #fff;
   line-height: 1.4;
   text-transform: uppercase;
