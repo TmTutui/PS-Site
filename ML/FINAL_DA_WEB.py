@@ -117,9 +117,6 @@ def ml_model(inputer):
 
 
     # %%
-    from sklearn.linear_model import LogisticRegression
-    from xgboost import XGBClassifier
-    from sklearn.neighbors import KNeighborsClassifier
 
     # variáveis para plugar os dados e labels
     train_data = X_train_for_scaling
@@ -168,7 +165,6 @@ def ml_model(inputer):
 
     # %%
     """ dependendo do dataset q eu vou usar eu mudo qual linha comentada ta comentada """
-    from sklearn.model_selection import train_test_split
 
     X = pd.DataFrame()
     X[['tpv medio','segmento_ord', 'mcc_ord', 'bairro_ord', 'cidade_ord', 'regiao_ord', 'uf_ord', 'subcanal_de_vendas_ord']] = quanti_do_sid[['tpv medio','segmento_ord', 'mcc_ord', 'bairro_ord', 'cidade_ord', 'regiao_ord', 'uf_ord', 'subcanal_de_vendas_ord']]
@@ -179,7 +175,6 @@ def ml_model(inputer):
 
 
     # %%
-    from sklearn.preprocessing import StandardScaler
 
     X_train_for_scaling = X_train
     X_test_for_scaling = X_test
@@ -210,7 +205,6 @@ def ml_model(inputer):
 
     # %%
     """ dependendo do dataset q eu vou usar eu mudo qual linha comentada ta comentada """
-    from sklearn.model_selection import train_test_split
 
     X = pd.DataFrame()
     X[['tpv medio','segmento_ord', 'mcc_ord', 'bairro_ord', 'cidade_ord', 'regiao_ord', 'uf_ord', 'subcanal_de_vendas_ord']] = quanti_do_sid[['tpv medio','segmento_ord', 'mcc_ord', 'bairro_ord', 'cidade_ord', 'regiao_ord', 'uf_ord', 'subcanal_de_vendas_ord']]
@@ -219,8 +213,6 @@ def ml_model(inputer):
 
 
     # %%
-    from sklearn.preprocessing import StandardScaler
-
     X_train_for_scaling = X_train
     X_test_for_scaling = X_test
 
@@ -228,13 +220,6 @@ def ml_model(inputer):
     scaler.transform(X_train_for_scaling)
     scaler.transform(X_test_for_scaling)
     """ variáveis foram clonadas para não afetar os outros modelos """
-
-
-    # %%
-    from xgboost import XGBRegressor
-    from sklearn.linear_model import LinearRegression
-    from sklearn.svm import SVC
-    from sklearn.neighbors import KNeighborsRegressor
 
 
     # variáveis para plugar os dados e labels
