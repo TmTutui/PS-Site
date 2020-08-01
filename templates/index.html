@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Contact V4</title>
+	<title>PS Stone </title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -34,9 +34,11 @@
 					<img src="{{ url_for('static', filename='images/icons/logo-stone.svg')}}" width="22%">
 				</span>
 
+				<h1 style ="text-align: center">Calculadora de score de crédito</h1>
+
 				<div class="wrap-input100 validate-input" data-validate="Por favor insira seu tpv">
 					<span class="label-input100">Total payment value</span>
-					<input class="input100" type="text" name="tpv" placeholder="Insira seu TPV">
+					<input class="input100" type="text" name="tpv" placeholder="Insira seu TPV" value="1000">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -44,7 +46,7 @@
 					<span class="label-input100">Você se enquadra como MEI?</span>
 					<div>
 						<select class="selection-2" name="mei">
-							<option>Selecione o segmento</option>
+							<option value = "1">Selecione o segmento</option>
 							<option value = "1">Sim</option>
 							<option value = "0">Não</option>
 						</select>
@@ -56,7 +58,7 @@
 					<span class="label-input100">Canal de venda</span>
 					<div>
 						<select class="selection-2" name="canal_de_vendas_ord">
-							<option>Selecione o canal de vendas</option>
+							<option value = "1">Selecione o canal de vendas</option>
 							<option value = "1">Aéreo</option>
 							<option value = "2">Marítimo</option>
 							<option value = "3">Psiônico</option>
@@ -69,7 +71,7 @@
 					<span class="label-input100">Subcanal de venda</span>
 					<div>
 						<select class="selection-2" name="subcanal_de_vendas_ord">
-							<option>Selecione o subcanal de vendas</option>
+							<option value = "1">Selecione o subcanal de vendas</option>
 							<option value = "1">Pombo correio</option>
 							<option value = "2">Sinal de fumaça</option>
 							<option value = "3">FAX</option>
@@ -82,7 +84,7 @@
 					<span class="label-input100">Segmento</span>
 					<div>
 						<select class="selection-2" name="segmento_ord">
-							<option>Selecione o segmento</option>
+							<option value = "1">Selecione o segmento</option>
 							<option value = "1">Delivery</option>
 							<option value = "2">Adquirência</option>
 							<option value = "3">Bancário</option>
@@ -95,7 +97,7 @@
 					<span class="label-input100">Região</span>
 					<div>
 						<select class="selection-2" name='regiao_ord'>
-							<option>Selecione a Região</option>
+							<option value = "1">Selecione a Região</option>
 							<option value = "1">Terra-média</option>
 							<option value = "2">Alderaan</option>
 							<option value = "3">Coruscant</option>
@@ -108,7 +110,7 @@
 					<span class="label-input100">Cidade</span>
 					<div>
 						<select class="selection-2" name='cidade_ord'>
-							<option>Selecione a Cidade</option>
+							<option value = "1">Selecione a Cidade</option>
 							<option value = "1">Condado</option>
 							<option value = "2">Gondor</option>
 							<option value = "3">Mordor</option>
@@ -123,7 +125,7 @@
 					<span class="label-input100">Bairro</span>
 					<div>
 						<select class="selection-2" name='bairro_ord'>
-							<option>Selecione o Bairro</option>
+							<option value = "1">Selecione o Bairro</option>
 							<option value = "1">Appleby Arrows</option>
 							<option value = "2">Ballycastle Bats</option>
 							<option value = "3">Caerphilly Catapults</option>
@@ -138,7 +140,7 @@
 					<span class="label-input100">Unidade Federativa</span>
 					<div>
 						<select class="selection-2" name='uf_ord'>
-							<option>Selecione o UF</option>
+							<option value = "1">Selecione o UF</option>
 							<option value = "1">Casa da Pedra</option>
 							<option value = "2">Water Deep</option>
 							<option value = "3">Sword Cost</option>
@@ -152,7 +154,7 @@
 					<span class="label-input100">Merchant Category Code</span>
 					<div>
 						<select class="selection-2" name='mcc_ord'>
-							<option>Selecione o MCC</option>
+							<option value = "1">Selecione o MCC</option>
 							<option value = "1">7269</option>
 							<option value = "2">0104</option>
 							<option value = "3">1038</option>
@@ -167,7 +169,7 @@
 						<div class="contact100-form-bgbtn"></div>
 						<button class="contact100-form-btn">
 							<span>
-								Submit
+								Calcular meu score agora!
 								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 							</span>
 						</button>

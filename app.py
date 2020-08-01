@@ -20,7 +20,7 @@ def score():
   uf = int(request.args.get('uf_ord', default_value ))
   mcc = int(request.args.get('mcc_ord', default_value ))
   mei = int(request.args.get('mei', default_value ))
-  tpv = int(request.args.get('tpv', "5763" ))
+  tpv = int(request.args.get('tpv'))
 
   inputs = [tpv,segmento,mcc,bairro,cidade,regiao,uf,subcanal]
 
@@ -36,10 +36,10 @@ def score():
 
   if(mei == 1):
     # se for MEI
-    aprovado = True if score > .75 else False
+    aprovado = True if score >= .75 else False
   else:
     # se não for MEI
-    aprovado = True if score > .85 else False
+    aprovado = True if score >= .85 else False
 
   return render_template('score.html', score = score, limite = limite, rotativo = rotativo, parcelas = parcelas, aprovado = aprovado)
 
