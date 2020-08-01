@@ -22,7 +22,8 @@ def score():
 
   score = .8
   limite = 10000
-  juros = "5%"
+  rotativo = "5%"
+  parcelas = "4%"
 
   if(mei == 1):
     # se for MEI
@@ -31,7 +32,7 @@ def score():
     # se não for MEI
     aprovado = True if score > .85 else False
 
-  return render_template('score.html', score = score, limit = limite, tax = juros, aprovado = aprovado)
+  return render_template('score.html', score = score, limite = limite, rotativo = rotativo, parcelas = parcelas, aprovado = aprovado)
 
 
 if __name__ == '__main__':

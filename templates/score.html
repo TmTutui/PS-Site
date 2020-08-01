@@ -45,10 +45,16 @@
         height: 100%;
         right: 0px;
         position: absolute;
-        border: solid 30px transparent;
-        border-top-color: #000;
-        border-left-color: #000;
+        border: solid 35px transparent;
+        {%if aprovado %}
+            border-top-color: #14AA4B;
+            border-left-color: #14AA4B;
+        {%else%}
+            border-top-color: #ff0000;
+            border-left-color: #ff0000;
+        {%endif%}
         border-radius: 50%;
+        z-index: 3;
     }
 
     #clipped {
@@ -57,6 +63,24 @@
         -webkit-animation: rotate 2s linear;
         transform: rotate({{score*180 - 45}}deg);
     }
+
+    .halfcircle_shadow {
+        box-sizing: border-box;
+        height: 100%;
+        right: 0px;
+        position: absolute;
+        border: solid 30px transparent;
+        border-top-color: rgb(226, 226, 226);
+        border-left-color: rgb(226, 226, 226);
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    #clipped_shadow {
+        width: 200%;
+        transform: rotate(135deg);
+    }
+
     @-webkit-keyframes rotate {
         0% {
             transform: rotate(-45deg);
@@ -73,6 +97,45 @@
             transform: rotate({{score*180 - 45}}deg);
         }
     }
+    .section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+    }
+
+    /*  COLUMN SETUP  */
+    .col {
+        display: block;
+        float:left;
+        margin: 0% 0 0% 2%;
+    }
+    .col:first-child { margin-left: 0; }
+
+    /*  GROUPING  */
+    .group:before,
+    .group:after { content:""; display:table; }
+    .group:after { clear:both;}
+    .group { zoom:1; /* For IE 6/7 */ }
+
+    /*  GRID OF TWO  */
+    .span_2_of_2 {
+        width: 100%;
+    }
+    .span_1_of_2 {
+        width: 47.6%;
+    }
+
+    /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+    @media only screen and (max-width: 1050px) {
+        .col { 
+            margin: 0% 0% 0% 0%;
+        }
+    }
+
+    @media only screen and (max-width: 1050px) {
+        .span_2_of_2, .span_1_of_2 { width: 100%; }
+    }
 </style>
 </head>
 <body>
@@ -85,39 +148,66 @@
 				</span>
                     <div class="wrap-input100">
                     {%if aprovado  %}
-                        <h3> Parabéns, você está apto a receber o cartão de crédito da Stone </h3>
+                        <h2> <b>Parabéns</b>, você está apto a receber
+                             o cartão de crédito da Stone </h2>
                     {%else%}
-                        <h5> Infelizmente você não está apto a receber <br>
-                         o cartão de crédito da Stone </h5>
+                        <h2> Infelizmente você <b>não</b> está apto a receber
+                         o cartão de crédito da Stone </h2>
                     {%endif%}
                     </div>
 
                     <br><p></p><br>
 
-                    <h3 style ="font-family: Poppins-Medium;">Seu credit score:</h3>
-                    <p><br>
-                    
-                    <div id="container">
-                        <div id="halfclip">
-                            <div class="halfcircle" id="clipped"></div>
+                    <div class="section group" >
+                        <div class="col span_1_of_2">
+                            <h3 style ="font-family: Poppins-Medium; display: flex; align-self: center;">Seu credit score:</h3>
+                            <p><br>
+                            
+                            <div id="container">
+                                <div id="halfclip" style = "display: flex; align-items: center;">
+                                    <div class="halfcircle" id="clipped"></div>
+                                    <div class="halfcircle_shadow" id="clipped_shadow"></div>
+                                    <h3 style="transform: rotate(90deg); position: relative; font-size: 400%"> {{score*100}} </h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col span_1_of_2">
+                            <h3 style ="font-family: Poppins-Medium; display: flex; align-self: center;">Juros</h3>
+                            <p></p><br>
+                            <div class="wrap-table100">
+                                <div class="table100 ver2 m-b-110">
+                                    <table data-vertable="ver2">
+                                        <thead>
+                                            <tr class="row100 head">
+                                                <th class="column100 column1" data-column="column1">Tipo de juros</th>
+                                                <th class="column100 column2" data-column="column2">Taxa (a.m.)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="row100">
+                                                <td class="column100 column1" data-column="column1">Rotativo</td>
+                                                <td class="column100 column2" data-column="column2">{{rotativo}}</td>
+                                            </tr>
+
+                                            <tr class="row100">
+                                                <td class="column100 column1" data-column="column1">Parcelas</td>
+                                                <td class="column100 column2" data-column="column2">{{parcelas}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col span_2_of_2">
+                            <h3>A partir do seu credit score, determinamos que seu <b>limite</b> será de <b>{{limite}}</b> reais!</h3>
                         </div>
                     </div>
 
-                    <svg viewBox="0 0 300 50">
-                        <g fill-opacity=".05" stroke-width="10">
-                            <path
-                                d="M5 50a45 45 0 1 1 90 0"
-                                stroke="#E0E0E0"
-                            />
-                            <path
-                                class="progress"
-                                d="M5 50a45 45 0 1 1 90 0"
-                                stroke="#14AA4B"
-                                stroke-dasharray="210"
-                                stroke-dashoffset="142"
-                            />
-                        </g>
-                    </svg>
+
+
 			</form>
 		</div>
 	</div>
