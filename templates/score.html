@@ -187,38 +187,39 @@
                             </div>
                         </div>
 
+                        {%if aprovado  %}
+                            <div class="col span_1_of_2">
+                                <h3 style ="font-family: Poppins-Medium; display: flex; align-self: center;">Juros</h3>
+                                <p></p><br>
+                                <div class="wrap-table100">
+                                    <div class="table100 ver2 m-b-110" >
+                                        <table data-vertable="ver2">
+                                            <thead>
+                                                <tr class="row100 head">
+                                                    <th class="column100 column1" data-column="column1">Tipo de juros</th>
+                                                    <th class="column100 column2" data-column="column2">Taxa (a.m.)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="row100">
+                                                    <td class="column100 column1" data-column="column1">Rotativo</td>
+                                                    <td class="column100 column2" data-column="column2">{{rotativo}}</td>
+                                                </tr>
 
-                        <div class="col span_1_of_2">
-                            <h3 style ="font-family: Poppins-Medium; display: flex; align-self: center;">Juros</h3>
-                            <p></p><br>
-                            <div class="wrap-table100">
-                                <div class="table100 ver2 m-b-110" >
-                                    <table data-vertable="ver2">
-                                        <thead>
-                                            <tr class="row100 head">
-                                                <th class="column100 column1" data-column="column1">Tipo de juros</th>
-                                                <th class="column100 column2" data-column="column2">Taxa (a.m.)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="row100">
-                                                <td class="column100 column1" data-column="column1">Rotativo</td>
-                                                <td class="column100 column2" data-column="column2">{{rotativo}}</td>
-                                            </tr>
-
-                                            <tr class="row100">
-                                                <td class="column100 column1" data-column="column1">Parcelas</td>
-                                                <td class="column100 column2" data-column="column2">{{parcelas}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                <tr class="row100">
+                                                    <td class="column100 column1" data-column="column1">Parcelamento</td>
+                                                    <td class="column100 column2" data-column="column2">{{parcelas}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col span_2_of_2">
-                            <h3>A partir do seu credit score, determinamos que seu <b>limite</b> será de <b>{{limite}}</b> reais!</h3>
-                        </div>
+                            <div class="col span_2_of_2">
+                                <h3>A partir do seu credit score, determinamos que seu <b>limite</b> será de <b>{{limite}}</b> reais!</h3>
+                            </div>
+                        {%endif%}
                     </div>
 
 
