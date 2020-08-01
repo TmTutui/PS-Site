@@ -29,10 +29,28 @@
 
 	<div class="container-contact100" >
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
+			<form class="contact100-form validate-form" action="score" method="GET">
 				<span class="contact100-form-title">
-					<img src="{{ url_for('static', filename='images/icons/logo-stone.svg')}}" width="15%">
+					<img src="{{ url_for('static', filename='images/icons/logo-stone.svg')}}" width="22%">
 				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Por favor insira seu tpv">
+					<span class="label-input100">Total payment value</span>
+					<input class="input100" type="text" name="tpv" placeholder="Insira seu TPV">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">Você se enquadra como MEI?</span>
+					<div>
+						<select class="selection-2" name="mei">
+							<option>Selecione o segmento</option>
+							<option value = "1">Sim</option>
+							<option value = "0">Não</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
 
 				<div class="wrap-input100 input100-select">
 					<span class="label-input100">Canal de venda</span>
@@ -188,13 +206,5 @@
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
-
 </body>
 </html>
