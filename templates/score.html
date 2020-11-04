@@ -230,23 +230,19 @@
     {
     margin:0
     }
-    @media (max-width:991px)
-    {
-    .site-footer [class^=col-]
-    {
-        margin-bottom:30px
+    @media (max-width:991px){
+        .site-footer [class^=col-]{
+            margin-bottom:30px
+        }
     }
-    }
-    @media (max-width:767px)
-    {
-    .site-footer
-    {
-        padding-bottom:0
-    }
-    .site-footer .copyright-text,.site-footer .social-icons
-    {
-        text-align:center
-    }
+
+    @media (max-width:767px){
+        .site-footer{
+            padding-bottom:0
+        }
+        .site-footer .copyright-text,.site-footer .social-icons{
+            text-align:center
+        }
     }
     .social-icons
     {
@@ -330,7 +326,7 @@
 					<img src="{{ url_for('static', filename='images/icons/logo-stone.svg')}}" width="30%">
 				</span>
                     <div class="wrap-input100">
-                    {%if aprovado  %}
+                    {% if aprovado  %}
                         <h2> <b>Parabéns</b>, você está apto a receber
                              o cartão de crédito da Stone </h2>
                     {%else%}
@@ -400,23 +396,23 @@
                         <p class="text-justify">Um site que demostra nosso algoritmo de Machine Learning de uma forma clara e simples. Os nomes de cidades, bairros, canais, etc foram mostrados como ficcionais pois os dados que recebemos foram anonimizado, então não associamos os códigos anonimizados a lugares reais. </p>
                     </div>
 
-                    <div class="col-xs-6 col-md-3">
+                    <div class="col-sm-6 col-md-3">
                         <h6>Membros</h6>
                         <ul class="footer-links">
-                        <li><a href="">Carolina</a></li>
-                        <li><a href="">Felipe</a></li>
-                        <li><a href="">Mateus</a></li>
-                        <li><a href="">Ricardo</a></li>
-                        <li><a href="">Tulio</a></li>
-                        <li><a href="">Vanessa</a></li>
+                            <li><a href="https://www.linkedin.com/in/carolina-campos-chaim/">            Carolina  </a></li>
+                            <li><a href="https://www.linkedin.com/in/felipe-barbosa-00/">                Felipe    </a></li>
+                            <li><a href="https://www.linkedin.com/in/mateus-haddad-marum-68a62417a/">    Mateus    </a></li>
+                            <li><a href="https://www.linkedin.com/in/ricardo-de-arruda/">                Ricardo   </a></li>
+                            <li><a href="https://www.linkedin.com/in/tulio-tutui/">                      Tulio     </a></li>
+                            <li><a href="https://www.linkedin.com/in/vanessa-sales/">                    Vanessa   </a></li>
                         </ul>
                     </div>
 
-                    <div class="col-xs-6 col-md-3"> 
+                    <div class="col-sm-6 col-md-3"> 
                         <h6>Links rápidos</h6>
                         <ul class="footer-links">
-                        <li><a href="https://github.com/TmTutui/PS-Site">Github do site</a></li>
-                        <li><a href="https://www.linkedin.com/in/tulio-tutui/">Contato</a></li>
+                            <li><a href="https://github.com/TmTutui/PS-Site">Github do site</a></li>
+                            <li><a href="https://www.linkedin.com/in/tulio-tutui/">Contato</a></li>
                         </ul>
                     </div>
                     </div>

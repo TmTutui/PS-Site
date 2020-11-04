@@ -31,15 +31,20 @@ def score():
   score = score.round(2)
   print(score)
   limite = limite.round(0)
-  rotativo = str((1.5*parcelas).round(2)) + "%"
-  parcelas = str(parcelas.round(2)) + "%"
+  rotativo = str((1.5*parcelas/6).round(2)) + "%"
+  parcelas = str((parcelas/6).round(2)) + "%"
 
   if(mei == 1):
     # se for MEI
     aprovado = True if score >= .75 else False
+    if(aprovado and score < .90):
+      score = .90
+
   else:
     # se não for MEI
     aprovado = True if score >= .85 else False
+    if(aprovado and score < .95):
+      score = .95
 
   return render_template('score.html', score = score, limite = limite, rotativo = rotativo, parcelas = parcelas, aprovado = aprovado)
 
